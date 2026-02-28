@@ -34,25 +34,24 @@ icon: power-off
 3. Опиши типы по формату:
 
 ```yml
-tnts:
-  nuclear:
-    enabled: true
-    item:
-      material: TNT
-      name: "&4&lЯдерный заряд"
-      lore:
-        - "&7Радиус взрыва: &c20 блоков"
-      glowing: true
-      glow-color: RED
-    ignite:
-      fuse-seconds: 5.0
-      auto-ignite-on-place: true
-    explosion:
-      radius: 20.0
-      damage:
-        enabled: true
-        max-damage: 40.0
-        min-damage: 5.0
+nuclear:
+  enabled: true
+  item:
+    material: TNT
+    name: "&4&lЯдерный заряд"
+    lore:
+      - "&7Радиус взрыва: &c20 блоков"
+    glowing: true
+    glow-color: RED
+  ignite:
+    fuse-seconds: 5.0
+    auto-ignite-on-place: true
+  explosion:
+    radius: 20.0
+    damage:
+      enabled: true
+      max-damage: 40.0
+      min-damage: 5.0
 ```
 
 4. Выполни `/hypertnt reload` — плагин перечитает все файлы.

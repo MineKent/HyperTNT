@@ -9,33 +9,32 @@ icon: wand-magic-sparkles
 ## Синтаксис
 
 ```yml
-tnts:
-  <id>:
-    explosion:
-      radius: 6.0
-      damage:
-        enabled: true
-        max-damage: 24.0
-        min-damage: 0.0
-        exposure: 1.0
-      quality:
-        rays: 16
-        strength-multiplier: 1.0
-        resistance-multiplier: 1.0
-      blocks:
-        default:
+<id>:
+  explosion:
+    radius: 6.0
+    damage:
+      enabled: true
+      max-damage: 24.0
+      min-damage: 0.0
+      exposure: 1.0
+    quality:
+      rays: 16
+      strength-multiplier: 1.0
+      resistance-multiplier: 1.0
+    blocks:
+      default:
+        mode: BREAK
+        drop-chance: 1.0
+      per-material:
+        OBSIDIAN:
+          mode: IGNORE
+        CHEST:
           mode: BREAK
           drop-chance: 1.0
-        per-material:
-          OBSIDIAN:
-            mode: IGNORE
-          CHEST:
-            mode: BREAK
-            drop-chance: 1.0
-      post:
-        set-fire: false
-        fire-chance: 0.2
-        commands: []
+    post:
+      set-fire: false
+      fire-chance: 0.2
+      commands: []
 ```
 
 ---

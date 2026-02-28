@@ -13,15 +13,14 @@ icon: wand-magic-sparkles
 ### Синтаксис
 
 ```yml
-tnts:
-  <id>:
-    hologram:
-      enabled: true
-      lines:
-        - "&c&lHyperTNT"
-        - "&7Взрыв через: &c{time}s"
-      height: 1.2
-      update-period-ticks: 5
+<id>:
+  hologram:
+    enabled: true
+    lines:
+      - "&c&lHyperTNT"
+      - "&7Взрыв через: &c{time}s"
+    height: 1.2
+    update-period-ticks: 5
 ```
 
 ### Параметры
@@ -49,15 +48,14 @@ tnts:
 ### Синтаксис
 
 ```yml
-tnts:
-  <id>:
-    item:
-      glowing: true
-      glow-color: RED
-      glow-animation:
-        enabled: true
-        colors: [RED, GOLD, YELLOW]
-        period-ticks: 10
+<id>:
+  item:
+    glowing: true
+    glow-color: RED
+    glow-animation:
+      enabled: true
+      colors: [RED, GOLD, YELLOW]
+      period-ticks: 10
 ```
 
 ### Параметры

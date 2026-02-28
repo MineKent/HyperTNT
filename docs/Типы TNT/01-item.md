@@ -9,20 +9,19 @@ icon: bolt
 ## Синтаксис
 
 ```yml
-tnts:
-  <id>:
-    item:
-      material: TNT
-      name: "&c&lHyperTNT"
-      lore:
-        - "&7Особый динамит"
-        - "&7Время до взрыва: &c{fuse}s"
-      glowing: true
-      glow-color: RED
-      glow-animation:
-        enabled: false
-        colors: [RED, GOLD, YELLOW]
-        period-ticks: 10
+<id>:
+  item:
+    material: TNT
+    name: "&c&lHyperTNT"
+    lore:
+      - "&7Особый динамит"
+      - "&7Время до взрыва: &c{fuse}s"
+    glowing: true
+    glow-color: RED
+    glow-animation:
+      enabled: false
+      colors: [RED, GOLD, YELLOW]
+      period-ticks: 10
 ```
 
 ### `material`

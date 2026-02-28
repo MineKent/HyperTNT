@@ -9,23 +9,22 @@ icon: bolt
 ## Синтаксис
 
 ```yml
-tnts:
-  <id>:
-    ignite:
-      fuse-seconds: 4.0
-      auto-ignite-on-place: true
-      disable-gravity: false
-      upward-velocity: 0.2
-      throw:
-        enabled: true
-        velocity-xz: 0.9
-        velocity-y: 0.2
-      allow:
-        flint-and-steel: true
-        fire-charge: true
-        redstone: true
-        fire: true
-        explosion: true
+<id>:
+  ignite:
+    fuse-seconds: 4.0
+    auto-ignite-on-place: true
+    disable-gravity: false
+    upward-velocity: 0.2
+    throw:
+      enabled: true
+      velocity-xz: 0.9
+      velocity-y: 0.2
+    allow:
+      flint-and-steel: true
+      fire-charge: true
+      redstone: true
+      fire: true
+      explosion: true
 ```
 
 ### `fuse-seconds`
