@@ -23,17 +23,12 @@ default:
     lore:
       - "&7Особый динамит"
       - "&7Время до взрыва: &c{fuse}s"
-    glowing: true
-    glow-color: RED
-    glow-animation:
-      enabled: false
-      colors: [RED, GOLD, YELLOW]
-      period-ticks: 10
   ignite:
     fuse-seconds: 4.0
     auto-ignite-on-place: true
-    disable-gravity: false
-    upward-velocity: 0.2
+    velocity:
+      gravity: true
+      upward: 0.2
     throw:
       enabled: true
       velocity-xz: 0.9
@@ -44,13 +39,21 @@ default:
       redstone: true
       fire: true
       explosion: true
-  hologram:
-    enabled: true
-    lines:
-      - "&c&lHyperTNT"
-      - "&7Взрыв через: &c{time}s"
-    height: 1.2
-    update-period-ticks: 5
+  visual:
+    glow:
+      enabled: true
+      color: RED
+      animation:
+        enabled: false
+        colors: [RED, GOLD, YELLOW]
+        period-ticks: 10
+    hologram:
+      enabled: true
+      lines:
+        - "&c&lHyperTNT"
+        - "&7Взрыв через: &c{time}s"
+      height: 1.2
+      update-period-ticks: 5
   explosion:
     radius: 6.0
     damage:
@@ -58,7 +61,7 @@ default:
       max-damage: 24.0
       min-damage: 0.0
       exposure: 1.0
-    quality:
+    raycast:
       rays: 16
       strength-multiplier: 1.0
       resistance-multiplier: 1.0
@@ -94,17 +97,12 @@ nuclear:
       - "&7Радиус: &c20 блоков"
       - "&7Урон: &c5–40"
       - "&7Время горения: &c{fuse}s"
-    glowing: true
-    glow-color: DARK_RED
-    glow-animation:
-      enabled: true
-      colors: [DARK_RED, RED, GOLD, YELLOW]
-      period-ticks: 8
   ignite:
     fuse-seconds: 6.0
     auto-ignite-on-place: true
-    disable-gravity: false
-    upward-velocity: 0.0
+    velocity:
+      gravity: true
+      upward: 0.0
     throw:
       enabled: false
     allow:
@@ -113,13 +111,21 @@ nuclear:
       redstone: true
       fire: false
       explosion: false
-  hologram:
-    enabled: true
-    lines:
-      - "&4&lЯДЕРНЫЙ ЗАРЯД"
-      - "&cВзрыв через: &f{time}s"
-    height: 1.5
-    update-period-ticks: 2
+  visual:
+    glow:
+      enabled: true
+      color: DARK_RED
+      animation:
+        enabled: true
+        colors: [DARK_RED, RED, GOLD, YELLOW]
+        period-ticks: 8
+    hologram:
+      enabled: true
+      lines:
+        - "&4&lЯДЕРНЫЙ ЗАРЯД"
+        - "&cВзрыв через: &f{time}s"
+      height: 1.5
+      update-period-ticks: 2
   explosion:
     radius: 20.0
     damage:
@@ -127,7 +133,7 @@ nuclear:
       max-damage: 40.0
       min-damage: 5.0
       exposure: 0.9
-    quality:
+    raycast:
       rays: 24
       strength-multiplier: 1.2
       resistance-multiplier: 0.8
@@ -164,13 +170,12 @@ silent:
     lore:
       - "&7Не разрушает блоки"
       - "&7Только урон по существам"
-    glowing: true
-    glow-color: DARK_GRAY
   ignite:
     fuse-seconds: 2.0
     auto-ignite-on-place: true
-    disable-gravity: true
-    upward-velocity: 0.0
+    velocity:
+      gravity: false
+      upward: 0.0
     throw:
       enabled: true
       velocity-xz: 0.6
@@ -181,8 +186,14 @@ silent:
       redstone: false
       fire: false
       explosion: false
-  hologram:
-    enabled: false
+  visual:
+    glow:
+      enabled: true
+      color: DARK_GRAY
+      animation:
+        enabled: false
+    hologram:
+      enabled: false
   explosion:
     radius: 5.0
     damage:
@@ -190,7 +201,7 @@ silent:
       max-damage: 18.0
       min-damage: 2.0
       exposure: 1.0
-    quality:
+    raycast:
       rays: 12
       strength-multiplier: 1.0
       resistance-multiplier: 1.0
@@ -217,7 +228,20 @@ craftable:
     name: "&6&lКрафтовый TNT"
     lore:
       - "&7Скрафти его сам!"
-    glowing: false
+  ignite:
+    fuse-seconds: 3.5
+    auto-ignite-on-place: true
+    velocity:
+      gravity: true
+      upward: 0.0
+    throw:
+      enabled: false
+    allow:
+      flint-and-steel: true
+      fire-charge: true
+      redstone: true
+      fire: true
+      explosion: true
   craft:
     enabled: true
     shape:
@@ -227,19 +251,11 @@ craftable:
     ingredients:
       G: GUNPOWDER
       T: TNT
-  ignite:
-    fuse-seconds: 3.5
-    auto-ignite-on-place: true
-    throw:
+  visual:
+    glow:
       enabled: false
-    allow:
-      flint-and-steel: true
-      fire-charge: true
-      redstone: true
-      fire: true
-      explosion: true
-  hologram:
-    enabled: false
+    hologram:
+      enabled: false
   explosion:
     radius: 7.0
     damage:

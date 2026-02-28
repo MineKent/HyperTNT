@@ -4,43 +4,55 @@ icon: wand-magic-sparkles
 
 # Голограмма и визуал
 
-Секции `hologram` и `item` (поля `glowing`, `glow-color`, `glow-animation`) управляют визуальным отображением горящей TNT-сущности: плавающим текстом и свечением.
+Секция `visual` объединяет все визуальные эффекты горящей TNT-сущности: свечение и голограмму.
 
----
-
-## Свечение (`glowing`, `glow-color`, `glow-animation`)
-
-Параметры свечения расположены внутри секции `item:`, но управляют **горящей TNT-сущностью** — к предмету в инвентаре отношения не имеют.
-
-### Синтаксис
+## Синтаксис
 
 ```yml
 <id>:
-  item:
-    glowing: true
-    glow-color: RED
-    glow-animation:
+  visual:
+    glow:
       enabled: true
-      colors: [RED, GOLD, YELLOW]
-      period-ticks: 10
+      color: RED
+      animation:
+        enabled: false
+        colors: [RED, GOLD, YELLOW]
+        period-ticks: 10
+    hologram:
+      enabled: true
+      lines:
+        - "&c&lHyperTNT"
+        - "&7Взрыв через: &c{time}s"
+      height: 1.2
+      update-period-ticks: 5
 ```
 
-### Параметры
+---
 
-* `glowing` (опционально) — включить свечение у горящего TNT. По умолчанию `false`.
-* `glow-color` — цвет свечения (используется если `glow-animation.enabled: false`). По умолчанию `WHITE`.
-* `glow-animation.enabled` (опционально) — включить анимацию смены цвета. По умолчанию `false`.
-* `glow-animation.colors` (опционально) — список цветов, по которым проходит анимация. Порядок соблюдается.
-* `glow-animation.period-ticks` (опционально) — интервал смены одного цвета в тиках. По умолчанию `10`.
+## Свечение (`visual.glow`)
 
-Допустимые цвета:
+Свечение горящей TNT-сущности. К предмету в инвентаре отношения не имеет.
+
+* `enabled` (опционально) — включить свечение. По умолчанию `false`.
+* `color` (опционально) — цвет свечения. Используется когда `animation.enabled: false`. По умолчанию `RED`.
+
+Допустимые значения `color`:
 
 `BLACK`, `DARK_BLUE`, `DARK_GREEN`, `DARK_AQUA`, `DARK_RED`, `DARK_PURPLE`, `GOLD`, `GRAY`, `DARK_GRAY`, `BLUE`, `GREEN`, `AQUA`, `RED`, `LIGHT_PURPLE`, `YELLOW`, `WHITE`
 
+### `glow.animation`
+
+Анимация циклической смены цвета свечения. Работает только при `glow.enabled: true`.
+
+* `enabled` (опционально) — включить анимацию. По умолчанию `false`.
+* `colors` (опционально) — список цветов для анимации в порядке их смены.
+* `period-ticks` (опционально) — интервал смены цвета в тиках. По умолчанию `10`.
+
 ```yml
-item:
-  glowing: true
-  glow-animation:
+glow:
+  enabled: true
+  color: RED
+  animation:
     enabled: true
     colors: [DARK_RED, RED, GOLD, YELLOW, WHITE]
     period-ticks: 5
@@ -51,24 +63,9 @@ item:
 
 ---
 
-## Голограмма (`hologram`)
+## Голограмма (`visual.hologram`)
 
 Плавающий текст над горящим TNT, обновляющийся в реальном времени.
-
-### Синтаксис
-
-```yml
-<id>:
-  hologram:
-    enabled: true
-    lines:
-      - "&c&lHyperTNT"
-      - "&7Взрыв через: &c{time}s"
-    height: 1.2
-    update-period-ticks: 5
-```
-
-### Параметры
 
 * `enabled` (опционально) — показывать голограмму. По умолчанию `false`.
 * `lines` (опционально) — список строк текста. Поддерживает `&`-коды цветов и плейсхолдер `{time}`.
@@ -80,6 +77,17 @@ item:
 | Плейсхолдер | Описание                                      |
 |-------------|-----------------------------------------------|
 | `{time}`    | Оставшееся время до взрыва в секундах (float) |
+
+```yml
+visual:
+  hologram:
+    enabled: true
+    lines:
+      - "&c&lHyperTNT"
+      - "&7Взрыв через: &c{time}s"
+    height: 1.2
+    update-period-ticks: 5
+```
 
 > [!TIP]
 > Уменьши `update-period-ticks` до `1` для плавного отсчёта, но учитывай нагрузку при большом числе горящих TNT.
