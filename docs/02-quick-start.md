@@ -41,8 +41,8 @@ nuclear:
     name: "&4&lЯдерный заряд"
     lore:
       - "&7Радиус взрыва: &c20 блоков"
-    glowing: true
-    glow-color: RED
+    glowing: true      # свечение горящей TNT-сущности (не предмета в инвентаре)
+    glow-color: RED    # цвет свечения горящей сущности
   ignite:
     fuse-seconds: 5.0
     auto-ignite-on-place: true

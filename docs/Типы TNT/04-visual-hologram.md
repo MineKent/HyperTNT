@@ -4,7 +4,52 @@ icon: wand-magic-sparkles
 
 # Голограмма и визуал
 
-Секции `hologram` и `item.glow-animation` управляют визуальным отображением горящего TNT: текстом над сущностью и анимацией свечения.
+Секции `hologram` и `item` (поля `glowing`, `glow-color`, `glow-animation`) управляют визуальным отображением горящей TNT-сущности: плавающим текстом и свечением.
+
+---
+
+## Свечение (`glowing`, `glow-color`, `glow-animation`)
+
+Параметры свечения расположены внутри секции `item:`, но управляют **горящей TNT-сущностью** — к предмету в инвентаре отношения не имеют.
+
+### Синтаксис
+
+```yml
+<id>:
+  item:
+    glowing: true
+    glow-color: RED
+    glow-animation:
+      enabled: true
+      colors: [RED, GOLD, YELLOW]
+      period-ticks: 10
+```
+
+### Параметры
+
+* `glowing` (опционально) — включить свечение у горящего TNT. По умолчанию `false`.
+* `glow-color` — цвет свечения (используется если `glow-animation.enabled: false`). По умолчанию `WHITE`.
+* `glow-animation.enabled` (опционально) — включить анимацию смены цвета. По умолчанию `false`.
+* `glow-animation.colors` (опционально) — список цветов, по которым проходит анимация. Порядок соблюдается.
+* `glow-animation.period-ticks` (опционально) — интервал смены одного цвета в тиках. По умолчанию `10`.
+
+Допустимые цвета:
+
+`BLACK`, `DARK_BLUE`, `DARK_GREEN`, `DARK_AQUA`, `DARK_RED`, `DARK_PURPLE`, `GOLD`, `GRAY`, `DARK_GRAY`, `BLUE`, `GREEN`, `AQUA`, `RED`, `LIGHT_PURPLE`, `YELLOW`, `WHITE`
+
+```yml
+item:
+  glowing: true
+  glow-animation:
+    enabled: true
+    colors: [DARK_RED, RED, GOLD, YELLOW, WHITE]
+    period-ticks: 5
+```
+
+> [!NOTE]
+> Свечение реализовано через scoreboard teams. Анимация активна только пока TNT горит — после взрыва эффект снимается автоматически.
+
+---
 
 ## Голограмма (`hologram`)
 
@@ -40,45 +85,6 @@ icon: wand-magic-sparkles
 > Уменьши `update-period-ticks` до `1` для плавного отсчёта, но учитывай нагрузку при большом числе горящих TNT.
 
 ---
-
-## Анимация свечения (`glow-animation`)
-
-Циклическая смена цвета свечения у горящего TNT.
-
-### Синтаксис
-
-```yml
-<id>:
-  item:
-    glowing: true
-    glow-color: RED
-    glow-animation:
-      enabled: true
-      colors: [RED, GOLD, YELLOW]
-      period-ticks: 10
-```
-
-### Параметры
-
-* `glowing` (обязательно для анимации) — свечение должно быть включено (`true`).
-* `glow-color` — базовый цвет свечения (используется если `glow-animation.enabled: false`).
-* `glow-animation.enabled` (опционально) — включить анимацию смены цвета. По умолчанию `false`.
-* `glow-animation.colors` (опционально) — список цветов, по которым проходит анимация. Порядок соблюдается.
-* `glow-animation.period-ticks` (опционально) — интервал смены одного цвета в тиках. По умолчанию `10`.
-
-Допустимые цвета:
-
-`BLACK`, `DARK_BLUE`, `DARK_GREEN`, `DARK_AQUA`, `DARK_RED`, `DARK_PURPLE`, `GOLD`, `GRAY`, `DARK_GRAY`, `BLUE`, `GREEN`, `AQUA`, `RED`, `LIGHT_PURPLE`, `YELLOW`, `WHITE`
-
-```yml
-glow-animation:
-  enabled: true
-  colors: [DARK_RED, RED, GOLD, YELLOW, WHITE]
-  period-ticks: 5
-```
-
-> [!NOTE]
-> Анимация свечения активируется только пока TNT горит. После взрыва эффект снимается автоматически.
 
 ## См. также
 
