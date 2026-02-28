@@ -8,15 +8,15 @@ icon: gear
 
 ## Быстрые ссылки
 
-* [Быстрый старт](02-quick-start.md)
-* [Конфигурация](03-config.md)
+* [Быстрый старт](docs/02-quick-start.md)
+* [Конфигурация](docs/03-config.md)
 * Типы TNT:
-  * [01 — Предмет (item)](<Типы TNT/01-item.md>)
-  * [02 — Поджиг (ignite)](<Типы TNT/02-ignite.md>)
-  * [03 — Взрыв (explosion)](<Типы TNT/03-explosion.md>)
-  * [04 — Голограмма и визуал](<Типы TNT/04-visual-hologram.md>)
-* [Команды](Команды/01-commands.md)
-* [Примеры](Примеры/01-examples.md)
+  * [01 — Предмет (item)](<docs/Типы TNT/01-item.md>)
+  * [02 — Поджиг (ignite)](<docs/Типы TNT/02-ignite.md>)
+  * [03 — Взрыв (explosion)](<docs/Типы TNT/03-explosion.md>)
+  * [04 — Голограмма и визуал](<docs/Типы TNT/04-visual-hologram.md>)
+* [Команды](docs/Команды/01-commands.md)
+* [Примеры](docs/Примеры/01-examples.md)
 
 ## Что умеет (MVP)
 
