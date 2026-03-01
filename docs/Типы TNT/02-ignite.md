@@ -104,6 +104,6 @@ allow:
 ## См. также
 
 * [Предмет (item)](01-item.md)
-* [Взрыв (explosion)](03-explosion.md)
+* [Взрыв (explosion)](05-explosion.md)
 * [Голограмма и визуал](04-visual-hologram.md)
 * [Примеры](<../Примеры/01-examples.md>)

@@ -75,4 +75,4 @@ nuclear:
 * [Конфигурация](03-config.md)
 * [Предмет (item)](<Типы TNT/01-item.md>)
 * [Поджиг (ignite)](<Типы TNT/02-ignite.md>)
-* [Взрыв (explosion)](<Типы TNT/03-explosion.md>)
+* [Взрыв (explosion)](<Типы TNT/05-explosion.md>)
