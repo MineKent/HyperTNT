@@ -12,25 +12,41 @@ icon: wand-magic-sparkles
 <id>:
   explosion:
     radius: 6.0
+
     damage:
       enabled: true
       max-damage: 24.0
       min-damage: 0.0
       exposure: 1.0
+
     raycast:
       rays: 16
       strength-multiplier: 1.0
       resistance-multiplier: 1.0
+
     blocks:
+      in-liquid: false
+      max-blocks: 0
+
       default:
         mode: BREAK
         drop-chance: 1.0
+
+      # Настройки для режима PLACE
+      place:
+        material: SAND
+        shape: SPHERE # SPHERE / SQUARE / FILL
+        replaceable: []
+        replace-liquids: false
+        skip: [BEDROCK, BARRIER]
+
       per-material:
         OBSIDIAN:
           mode: IGNORE
         CHEST:
           mode: BREAK
           drop-chance: 1.0
+
     post:
       set-fire: false
       fire-chance: 0.2
@@ -83,7 +99,23 @@ damage:
 
 ### `blocks`
 
-Управление разрушением блоков взрывом.
+Управление поведением блоков при взрыве: разрушение (`BREAK`), игнорирование (`IGNORE`) или застройка (`PLACE`).
+
+#### `blocks.in-liquid`
+
+* `in-liquid` (опционально) — учитывать ли блоки **в воде/лаве**.
+  * По умолчанию: `false`.
+
+Если `false`, лучи взрыва, попав в жидкость, останавливаются (похоже на ваниллу).
+
+---
+
+#### `blocks.max-blocks`
+
+* `max-blocks` (опционально) — лимит изменённых блоков за один взрыв.
+  * `0` = без лимита.
+
+---
 
 #### `blocks.default`
 
@@ -94,10 +126,33 @@ damage:
 
 #### Режимы (`mode`)
 
+> [!NOTE]
+> Режим `PLACE` использует настройки из секции `blocks.place`.
+
+
 | Значение | Описание                                |
 |----------|-----------------------------------------|
 | `BREAK`  | Блок разрушается (с учётом drop-chance) |
 | `IGNORE` | Блок не разрушается взрывом             |
+| `PLACE`  | Блок заменяется материалом из `blocks.place` (режим застройки) |
+
+#### `blocks.place`
+
+Настройки режима застройки (`mode: PLACE`).
+
+* `material` (опционально) — материал, который будет ставиться.
+  * По умолчанию: `SAND`.
+* `shape` (опционально) — форма области застройки.
+  * Значения: `SPHERE`, `SQUARE`, `FILL`.
+  * По умолчанию: `SPHERE`.
+* `replaceable` (опционально) — список заменяемых блоков (кроме воздуха).
+  * Если список пустой — используется безопасный дефолт (трава/цветы/факелы/кнопки и т.д.).
+* `replace-liquids` (опционально) — заменять ли воду/лаву.
+  * По умолчанию: `false`.
+* `skip` (опционально) — список блоков, которые **нельзя** заменять.
+  * По умолчанию пустой.
+
+---
 
 #### `blocks.per-material`
 
@@ -141,6 +196,6 @@ post:
 
 ## См. также
 
-* [Поджиг (ignite)](02-ignite.md)
-* [Голограмма и визуал](04-visual-hologram.md)
+* [Поджиг (ignite)](03-ignite.md)
+* [Голограмма и визуал](05-visual-hologram.md)
 * [Примеры](<../Примеры/01-examples.md>)

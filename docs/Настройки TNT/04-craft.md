@@ -17,6 +17,7 @@ icon: hammer
 <id>:
   craft:
     enabled: false
+    disable_vanilla_craft: false
     shape:
       - "GGG"
       - "GTG"
@@ -34,6 +35,14 @@ icon: hammer
 
 * `enabled` (опционально) — включить/выключить регистрацию рецепта.
 * По умолчанию: `false`.
+
+### `disable_vanilla_craft`
+
+* `disable_vanilla_craft` (опционально) — отключить ванильный рецепт TNT (`minecraft:tnt`).
+* По умолчанию: `false`.
+
+> [!NOTE]
+> Обычно это включают в типе `_default_`, если вы хотите полностью заменить ванильный крафт на свой.
 
 ### `shape`
 
@@ -98,6 +107,6 @@ default:
 
 ## См. также
 
-* [Предмет (item)](01-item.md) — какой предмет будет получаться на выходе рецепта
+* [Предмет (item)](02-item.md) — какой предмет будет получаться на выходе рецепта
 * [Типы TNT](README.md)
 * [Примеры](<../04-examples.md>)

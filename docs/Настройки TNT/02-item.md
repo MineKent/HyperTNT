@@ -15,6 +15,7 @@ icon: bolt
 <id>:
   item:
     material: TNT
+    enchanted: true
     name: "&c&lHyperTNT"
     lore:
       - "&7Особый динамит"
@@ -28,6 +29,11 @@ icon: bolt
 * `material` (опционально) — Bukkit-имя материала предмета. По умолчанию `TNT`.
 
 Примеры допустимых значений: `TNT`, `GUNPOWDER`, `FIRE_CHARGE`, `NETHER_STAR`.
+
+### `enchanted`
+
+* `enchanted` (опционально) — сделать предмет визуально "зачарованным" (эффект глитча, без реальных чар).
+* По умолчанию: `false`.
 
 ### `name`
 
@@ -45,6 +51,6 @@ icon: bolt
 
 ## См. также
 
-* [Голограмма и визуал](04-visual-hologram.md) — здесь настраивается `visual.glow` и `visual.hologram`
-* [Голограмма и визуал](04-visual-hologram.md)
+* [Голограмма и визуал](05-visual-hologram.md) — здесь настраивается `visual.glow`, `visual.hologram`, `visual.sounds`, `visual.particles`
+* [Голограмма и визуал](05-visual-hologram.md)
 * [Быстрый старт](../02-quick-start.md)

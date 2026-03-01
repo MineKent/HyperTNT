@@ -18,6 +18,23 @@ icon: wand-magic-sparkles
         enabled: false
         colors: [RED, GOLD, YELLOW]
         period-ticks: 10
+
+    sounds:
+      enabled: true
+      sound: ENTITY_GENERIC_EXPLODE
+      volume: 4.0
+      pitch: 1.0
+
+    particles:
+      enabled: false
+      type: FLAME
+      count: 30
+      offset:
+        x: 0.5
+        y: 0.5
+        z: 0.5
+      extra: 0.02
+
     hologram:
       enabled: true
       lines:
@@ -26,6 +43,39 @@ icon: wand-magic-sparkles
       height: 1.2
       update-period-ticks: 5
 ```
+
+---
+
+## Звук взрыва (`visual.sounds`)
+
+Настройка звука, который будет проигрываться при **кастомном** взрыве HyperTNT.
+
+* `enabled` (опционально) — включить/выключить проигрывание звука.
+  * По умолчанию: `true`.
+  * Если `false` — звук взрыва для этого типа TNT не проигрывается.
+* `sound` (опционально) — имя звука из `org.bukkit.Sound`.
+  * По умолчанию: `ENTITY_GENERIC_EXPLODE`.
+* `volume` (опционально) — громкость.
+  * По умолчанию: `4.0`.
+* `pitch` (опционально) — тон.
+  * По умолчанию: `1.0`.
+
+---
+
+## Частицы при взрыве (`visual.particles`)
+
+Дополнительные частицы, которые будут спавниться при взрыве TNT этого типа.
+
+* `enabled` (опционально) — включить/выключить частицы.
+  * По умолчанию: `false`.
+* `type` (опционально) — имя частицы из `org.bukkit.Particle`.
+  * По умолчанию: `FLAME`.
+* `count` (опционально) — количество частиц.
+  * По умолчанию: `30`.
+* `offset.x/y/z` (опционально) — разброс по осям.
+  * По умолчанию: `0.5`.
+* `extra` (опционально) — параметр speed ("extra") у `World#spawnParticle`.
+  * По умолчанию: `0.02`.
 
 ---
 
@@ -96,6 +146,6 @@ visual:
 
 ## См. также
 
-* [Предмет (item)](01-item.md)
-* [Поджиг (ignite)](02-ignite.md)
+* [Предмет (item)](02-item.md)
+* [Поджиг (ignite)](03-ignite.md)
 * [Примеры](<../Примеры/01-examples.md>)
