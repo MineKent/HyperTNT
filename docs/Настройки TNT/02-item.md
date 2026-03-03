@@ -15,6 +15,7 @@ icon: bolt
 <id>:
   item:
     material: TNT
+    custom_model_data: 1234
     enchanted: true
     name: "&c&lHyperTNT"
     lore:
@@ -29,6 +30,11 @@ icon: bolt
 * `material` (опционально) — Bukkit-имя материала предмета. По умолчанию `TNT`.
 
 Примеры допустимых значений: `TNT`, `GUNPOWDER`, `FIRE_CHARGE`, `NETHER_STAR`.
+
+### `custom_model_data`
+
+* `custom_model_data` (опционально) — число для `CustomModelData` (ресурс-паки/кастомные модели предметов).
+* По умолчанию: не задаётся.
 
 ### `enchanted`
 

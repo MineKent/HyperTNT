@@ -51,6 +51,13 @@ icon: wand-magic-sparkles
       set-fire: false
       fire-chance: 0.2
       commands: []
+
+    knockback:
+      enabled: true
+      living-multiplier: 1.0
+      tnt-enabled: false
+      tnt-multiplier: 1.0
+      max-velocity: 2.5
 ```
 
 ---
@@ -194,8 +201,37 @@ post:
     - "say Взрыв произошёл в мире {world} на {x} {y} {z}"
 ```
 
+---
+
+### `knockback`
+
+Настройка отбрасывания сущностей при взрыве.
+
+* `enabled` (опционально) — включить отбрасывание. По умолчанию `true`.
+  * Если `false` — отбрасывание не применяется ни к кому.
+* `living-multiplier` (опционально) — множитель силы импульса для **живых сущностей**. По умолчанию `1.0`.
+* `tnt-enabled` (опционально) — отбрасывать ли также горящие TNT (`TNTPrimed`) в радиусе взрыва. По умолчанию `false`.
+* `tnt-multiplier` (опционально) — множитель импульса для TNTPrimed. По умолчанию `1.0`.
+* `max-velocity` (опционально) — ограничение скорости по модулю после добавления импульса. `0` или отрицательное — без ограничения. По умолчанию `2.5`.
+
+```yml
+knockback:
+  enabled: true
+  living-multiplier: 1.5    # усиленное отбрасывание игроков
+  tnt-enabled: true         # цепные взрывы разлетаются
+  tnt-multiplier: 2.0       # TNT отлетают сильнее игроков
+  max-velocity: 3.0         # не быстрее 3 блоков/тик
+```
+
+> [!NOTE]
+> Если `tnt-enabled: false` — горящие TNT не получают импульс от взрыва (стандартное ванильное поведение).
+
+> [!WARNING]
+> Очень большой `tnt-multiplier` без ограничения `max-velocity` может приводить к бесконечному улёту TNTPrimed за пределы мира. Рекомендуется всегда выставлять `max-velocity`.
+
 ## См. также
 
 * [Поджиг (ignite)](03-ignite.md)
 * [Голограмма и визуал](05-visual-hologram.md)
+* [Условия активации (conditions)](07-conditions.md)
 * [Примеры](<../Примеры/01-examples.md>)

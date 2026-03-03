@@ -20,10 +20,16 @@ icon: wand-magic-sparkles
         period-ticks: 10
 
     sounds:
-      enabled: true
-      sound: ENTITY_GENERIC_EXPLODE
-      volume: 4.0
-      pitch: 1.0
+      ignite:
+        enabled: true
+        sound: ENTITY_TNT_PRIMED
+        volume: 1.0
+        pitch: 1.0
+      explosion:
+        enabled: true
+        sound: ENTITY_GENERIC_EXPLODE
+        volume: 4.0
+        pitch: 1.0
 
     particles:
       enabled: false
@@ -46,19 +52,51 @@ icon: wand-magic-sparkles
 
 ---
 
-## Звук взрыва (`visual.sounds`)
+## Звуки (`visual.sounds`)
 
-Настройка звука, который будет проигрываться при **кастомном** взрыве HyperTNT.
+Секция `sounds` содержит две подсекции: `ignite` (звук поджога) и `explosion` (звук взрыва).
 
-* `enabled` (опционально) — включить/выключить проигрывание звука.
-  * По умолчанию: `true`.
-  * Если `false` — звук взрыва для этого типа TNT не проигрывается.
-* `sound` (опционально) — имя звука из `org.bukkit.Sound`.
-  * По умолчанию: `ENTITY_GENERIC_EXPLODE`.
-* `volume` (опционально) — громкость.
-  * По умолчанию: `4.0`.
-* `pitch` (опционально) — тон.
-  * По умолчанию: `1.0`.
+```yml
+visual:
+  sounds:
+    ignite:
+      enabled: true
+      sound: ENTITY_TNT_PRIMED
+      volume: 1.0
+      pitch: 1.0
+
+    explosion:
+      enabled: true
+      sound: ENTITY_GENERIC_EXPLODE
+      volume: 4.0
+      pitch: 1.0
+```
+
+### `visual.sounds.ignite` — звук поджога
+
+Проигрывается в момент успешной активации TNT (при любом сценарии поджига).
+
+* `enabled` (опционально) — включить звук поджога. По умолчанию: `true`.
+  * Если `false` или секция отсутствует — звук поджога не переопределяется.
+* `sound` (опционально) — имя звука из `org.bukkit.Sound`. По умолчанию: `ENTITY_TNT_PRIMED`.
+* `volume` (опционально) — громкость. По умолчанию: `1.0`.
+* `pitch` (опционально) — тон. По умолчанию: `1.0`.
+
+### `visual.sounds.explosion` — звук взрыва
+
+Проигрывается при **кастомном** взрыве HyperTNT.
+
+* `enabled` (опционально) — включить звук взрыва. По умолчанию: `true`.
+  * Если `false` — звук взрыва не проигрывается (тишина).
+* `sound` (опционально) — имя звука из `org.bukkit.Sound`. По умолчанию: `ENTITY_GENERIC_EXPLODE`.
+* `volume` (опционально) — громкость. По умолчанию: `4.0`.
+* `pitch` (опционально) — тон. По умолчанию: `1.0`.
+
+> [!NOTE]
+> Если указано неверное имя звука — используется безопасный дефолт (`ENTITY_TNT_PRIMED` / `ENTITY_GENERIC_EXPLODE`) и в консоль выводится предупреждение.
+
+> [!TIP]
+> **Обратная совместимость:** старый формат (`enabled/sound/volume/pitch` на уровне `sounds`) без подсекций всё ещё читается и воспринимается как настройка звука **взрыва**.
 
 ---
 
