@@ -186,4 +186,6 @@ visual:
 
 * [Предмет (item)](02-item.md)
 * [Поджиг (ignite)](03-ignite.md)
+* [Условия (conditions)](05-conditions.md)
+* [Взрыв (explosion)](07-explosion.md)
 * [Примеры](<../Примеры/01-examples.md>)

@@ -468,6 +468,6 @@ nuclear:
 ## См. также
 
 * [Поджиг (ignite)](03-ignite.md)
-* [Голограмма и визуал](05-visual-hologram.md)
-* [Взрыв (explosion)](06-explosion.md)
+* [Голограмма и визуал](06-visual-hologram.md)
+* [Взрыв (explosion)](07-explosion.md)
 * [Примеры](<../Примеры/01-examples.md>)

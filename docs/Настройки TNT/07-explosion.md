@@ -232,6 +232,6 @@ knockback:
 ## См. также
 
 * [Поджиг (ignite)](03-ignite.md)
-* [Голограмма и визуал](05-visual-hologram.md)
-* [Условия активации (conditions)](07-conditions.md)
+* [Голограмма и визуал](06-visual-hologram.md)
+* [Условия активации (conditions)](05-conditions.md)
 * [Примеры](<../Примеры/01-examples.md>)
