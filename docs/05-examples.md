@@ -31,6 +31,7 @@ default:
       upward: 0.2
     throw:
       enabled: true
+      hand: mainhand
       velocity-xz: 0.9
       velocity-y: 0.2
     allow:
@@ -178,6 +179,7 @@ silent:
       upward: 0.0
     throw:
       enabled: true
+      hand: mainhand
       velocity-xz: 0.6
       velocity-y: 0.1
     allow:

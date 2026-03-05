@@ -18,6 +18,7 @@ icon: bolt
       upward: 0.2
     throw:
       enabled: true
+      hand: mainhand # any/mainhand/offhand
       velocity-xz: 0.9
       velocity-y: 0.2
     allow:
@@ -68,12 +69,14 @@ velocity:
 Настройка броска TNT правым кликом с предметом в руке.
 
 * `enabled` (опционально) — разрешить бросок. По умолчанию `false`.
+* `hand` (опционально) — в какой руке можно держать TNT для броска: `any`/`mainhand`/`offhand`. По умолчанию `mainhand`.
 * `velocity-xz` (опционально) — горизонтальная скорость броска. По умолчанию `0.9`.
 * `velocity-y` (опционально) — вертикальная составляющая броска. По умолчанию `0.2`.
 
 ```yml
 throw:
   enabled: true
+  hand: any
   velocity-xz: 1.2
   velocity-y: 0.4
 ```
