@@ -35,7 +35,11 @@ tnts:
 
 * `sources` (обязательно) — список YAML-файлов с типами TNT.
 
-Пути указываются относительно папки `plugins/HyperTNT/tnts/`. Каждый файл может содержать несколько типов TNT.
+Пути указываются относительно папки `plugins/HyperTNT/tnts/`.
+
+Поддерживаются:
+* YAML-файлы (например, `example.yml`) — могут содержать несколько типов TNT.
+* Папки (например, `packs`) — из папки будут загружены все `*.yml` рекурсивно.
 
 ```yml
 tnts:
@@ -43,6 +47,7 @@ tnts:
     - "example.yml"
     - "military.yml"
     - "special/chaos.yml"
+    - "packs"
 ```
 
 > [!NOTE]
@@ -66,10 +71,8 @@ commands:
     - "{prefix}&fКоманды:"
     - "&7/hypertnt give <игрок> <тип> [кол-во]"
     - "&7/hypertnt reload"
-    - "&7/hypertnt types"
   reloaded: "{prefix}&aКонфиг перезагружен."
   given: "{prefix}&aВыдано &f{amount} &aшт. типа &f{type}&a игроку &f{player}&a."
-  types: "{prefix}&fДоступные типы: &7{types}"
 ```
 
 > [!TIP]
@@ -79,4 +82,4 @@ commands:
 
 * [Быстрый старт](02-quick-start.md)
 * [Предмет (item)](<Типы TNT/01-item.md>)
-* [Команды](<Команды/01-commands.md>)
+* [Команды](04-commands.md)
