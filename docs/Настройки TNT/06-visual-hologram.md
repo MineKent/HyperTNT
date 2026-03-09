@@ -33,21 +33,34 @@ icon: wand-magic-sparkles
 
     particles:
       enabled: false
-      type: FLAME
+      particle: FLAME
       count: 30
-      offset:
-        x: 0.5
-        y: 0.5
-        z: 0.5
+      offset-x: 0.5
+      offset-y: 0.5
+      offset-z: 0.5
       extra: 0.02
 
     hologram:
       enabled: true
+      type: armorstand # armorstand/displaytext
       lines:
         - "&c&lHyperTNT"
         - "&7Взрыв через: &c{time}s"
       height: 1.2
+      line-spacing: 0.25
       update-period-ticks: 5
+      displaytext:
+        shadowed: true
+        see-through: false
+        default-background: false
+        background-color: "#00000000"
+        line-width: 200
+        text-opacity: 255
+        billboard: FIXED
+        alignment: CENTER
+        scale: 1.0
+        glowing: false
+        glow-color: "#FFFFFF"
 ```
 
 ---
@@ -106,11 +119,11 @@ visual:
 
 * `enabled` (опционально) — включить/выключить частицы.
   * По умолчанию: `false`.
-* `type` (опционально) — имя частицы из `org.bukkit.Particle`.
+* `particle` (опционально) — имя частицы из `org.bukkit.Particle`.
   * По умолчанию: `FLAME`.
 * `count` (опционально) — количество частиц.
   * По умолчанию: `30`.
-* `offset.x/y/z` (опционально) — разброс по осям.
+* `offset-x/y/z` (опционально) — разброс по осям.
   * По умолчанию: `0.5`.
 * `extra` (опционально) — параметр speed ("extra") у `World#spawnParticle`.
   * По умолчанию: `0.02`.
@@ -156,8 +169,10 @@ glow:
 Плавающий текст над горящим TNT, обновляющийся в реальном времени.
 
 * `enabled` (опционально) — показывать голограмму. По умолчанию `false`.
+* `type` (опционально) — тип голограммы: `armorstand` или `displaytext`. По умолчанию `armorstand`.
 * `lines` (опционально) — список строк текста. Поддерживает `&`-коды цветов и плейсхолдер `{time}`.
 * `height` (опционально) — высота голограммы над TNT в блоках. По умолчанию `1.2`.
+* `line-spacing` (опционально) — расстояние между строками. По умолчанию `0.25`.
 * `update-period-ticks` (опционально) — интервал обновления текста в тиках. По умолчанию `5`.
 
 Доступные плейсхолдеры в `lines`:
@@ -170,15 +185,57 @@ glow:
 visual:
   hologram:
     enabled: true
+    type: displaytext
     lines:
       - "&c&lHyperTNT"
       - "&7Взрыв через: &c{time}s"
     height: 1.2
+    line-spacing: 0.25
     update-period-ticks: 5
 ```
 
 > [!TIP]
 > Уменьши `update-period-ticks` до `1` для плавного отсчёта, но учитывай нагрузку при большом числе горящих TNT.
+
+### `hologram.displaytext` (только для `type: displaytext`)
+
+Дополнительные настройки для режима `displaytext`. Этот режим использует сущности `TextDisplay` и доступен только на версиях, где они существуют (примерно 1.19+). Если сервер не поддерживает `TextDisplay`, плагин автоматически откатится к `armorstand`.
+
+* `shadowed` — тень текста. По умолчанию `true`.
+* `see-through` — текст виден сквозь блоки. По умолчанию `false`.
+* `default-background` — дефолтный фон текста. По умолчанию `false`.
+* `background-color` — цвет фона в hex (`#RRGGBB` или `#AARRGGBB`). По умолчанию не задан.
+* `line-width` — ширина строки (перенос). По умолчанию `200`.
+* `text-opacity` — прозрачность текста `0..255`. По умолчанию `255`.
+* `billboard` — режим поворота (например `FIXED`, `CENTER`). По умолчанию `FIXED`.
+* `alignment` — выравнивание текста (например `CENTER`, `LEFT`, `RIGHT`). По умолчанию `CENTER`.
+* `scale` — масштаб. По умолчанию `1.0`.
+* `glowing` — включить свечение сущности. По умолчанию `false`.
+* `glow-color` — цвет свечения в hex (`#RRGGBB` или `#AARRGGBB`). По умолчанию не задан.
+
+```yml
+visual:
+  hologram:
+    enabled: true
+    type: displaytext
+    lines:
+      - "&f{time}"
+    height: 1.2
+    line-spacing: 0.25
+    update-period-ticks: 2
+    displaytext:
+      shadowed: true
+      see-through: false
+      default-background: false
+      background-color: "#00000000"
+      line-width: 200
+      text-opacity: 255
+      billboard: FIXED
+      alignment: CENTER
+      scale: 1.0
+      glowing: false
+      glow-color: "#FFFFFF"
+```
 
 ---
 
